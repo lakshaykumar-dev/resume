@@ -3,54 +3,468 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lakshay Kumar Resume</title>
+  <title>Lakshay Kumar | Senior Full Stack Developer</title>
+  <meta name="description" content="Resume page for Lakshay Kumar, Senior Full Stack Developer specializing in Angular, .NET Core, SQL Server, AWS, healthcare, HL7, FHIR, and RCM systems.">
   <style>
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      background: #f6f7f9;
-      color: #111827;
+      background: #f4f7fb;
+      color: #152033;
       font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
     }
-    main {
-      width: min(92vw, 520px);
-      padding: 32px;
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      box-shadow: 0 12px 32px rgba(17, 24, 39, 0.08);
-      text-align: center;
+    a { color: inherit; }
+    .shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
     }
-    h1 {
-      margin: 0 0 8px;
-      font-size: 28px;
-      line-height: 1.2;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(244, 247, 251, 0.92);
+      border-bottom: 1px solid #d9e1ec;
+      backdrop-filter: blur(10px);
     }
-    p {
-      margin: 0 0 24px;
-      color: #4b5563;
-      line-height: 1.5;
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 64px;
     }
-    a {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 6px;
-      background: #111827;
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #536276;
+      font-size: 14px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 16px;
+      border-radius: 7px;
+      border: 1px solid #152033;
+      background: #152033;
       color: #ffffff;
       font-weight: 700;
       text-decoration: none;
     }
-    a:hover { background: #374151; }
+    .button.secondary {
+      background: #ffffff;
+      color: #152033;
+      border-color: #c9d4e2;
+    }
+    .hero {
+      padding: 56px 0 34px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+    .intro,
+    .contact-panel,
+    .card,
+    .project {
+      background: #ffffff;
+      border: 1px solid #dce5ef;
+      border-radius: 8px;
+      box-shadow: 0 16px 36px rgba(21, 32, 51, 0.07);
+    }
+    .intro { padding: 34px; }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #0f766e;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(36px, 7vw, 64px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      margin: 14px 0 0;
+      color: #334155;
+      font-size: 21px;
+      font-weight: 700;
+    }
+    .summary {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: #536276;
+      font-size: 16px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .contact-panel {
+      display: grid;
+      align-content: space-between;
+      gap: 22px;
+      padding: 24px;
+    }
+    .availability {
+      padding: 18px;
+      border-radius: 8px;
+      background: #eef8f6;
+      border: 1px solid #cce7e2;
+    }
+    .availability strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #0f766e;
+    }
+    .contact-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: #536276;
+      font-size: 14px;
+    }
+    .contact-list a { text-decoration: none; color: #152033; font-weight: 700; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .stat {
+      padding: 18px;
+      background: #ffffff;
+      border: 1px solid #dce5ef;
+      border-radius: 8px;
+    }
+    .stat strong {
+      display: block;
+      color: #0f766e;
+      font-size: 28px;
+      line-height: 1;
+    }
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: #536276;
+      font-size: 13px;
+    }
+    section {
+      padding: 28px 0;
+    }
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: 0;
+    }
+    .section-title p {
+      max-width: 560px;
+      margin: 0;
+      color: #536276;
+      font-size: 14px;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card { padding: 20px; }
+    .card h3,
+    .project h3 {
+      margin: 0 0 10px;
+      font-size: 17px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .tags li {
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: #edf2f7;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .experience {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.4fr) minmax(0, 0.6fr);
+      gap: 18px;
+    }
+    .role-card {
+      padding: 24px;
+      background: #152033;
+      color: #ffffff;
+      border-radius: 8px;
+    }
+    .role-card h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+    .role-card p {
+      margin: 0;
+      color: #cbd5e1;
+    }
+    .highlights {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .highlights li {
+      padding: 14px 16px;
+      background: #ffffff;
+      border: 1px solid #dce5ef;
+      border-radius: 8px;
+      color: #334155;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .project {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px;
+    }
+    .project p {
+      margin: 0;
+      color: #536276;
+      font-size: 14px;
+    }
+    .project .tech {
+      margin-top: auto;
+      color: #0f766e;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .education {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    footer {
+      padding: 34px 0 44px;
+      color: #536276;
+      text-align: center;
+      font-size: 14px;
+    }
+    @media (max-width: 860px) {
+      .hero-grid,
+      .experience,
+      .skills-grid,
+      .projects-grid,
+      .education {
+        grid-template-columns: 1fr;
+      }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .section-title {
+        display: block;
+      }
+      .section-title p { margin-top: 6px; }
+    }
+    @media (max-width: 640px) {
+      .shell { width: min(100% - 22px, 1120px); }
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+      .intro,
+      .contact-panel,
+      .role-card,
+      .card,
+      .project {
+        padding: 18px;
+      }
+      .hero { padding-top: 28px; }
+      .stats { grid-template-columns: 1fr; }
+      .button { width: 100%; }
+    }
   </style>
 </head>
 <body>
+  <header>
+    <nav class="shell">
+      <div class="brand">Lakshay Kumar</div>
+      <div class="nav-links" aria-label="Page navigation">
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="resume_v1.pdf" download>Download PDF</a>
+      </div>
+    </nav>
+  </header>
+
   <main>
-    <h1>Lakshay Kumar</h1>
-    <p>Senior Full Stack Developer</p>
-    <a href="resume_v1.pdf" download>Download Resume</a>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="intro">
+          <p class="eyebrow">Senior Full Stack Developer</p>
+          <h1>Lakshay Kumar</h1>
+          <p class="subtitle">Angular and .NET Core developer building scalable healthcare and cloud-ready web applications.</p>
+          <p class="summary">3+ years of hands-on experience across monolithic and microservices-based architectures, with strong work in REST APIs, Angular interfaces, SQL Server optimization, AWS development, and healthcare workflows.</p>
+          <div class="actions">
+            <a class="button" href="resume_v1.pdf" download>Download Resume</a>
+            <a class="button secondary" href="resume_v1.pdf" target="_blank" rel="noopener">View PDF</a>
+          </div>
+        </div>
+        <aside class="contact-panel">
+          <div class="availability">
+            <strong>Based in Nagpur, India</strong>
+            <span>Focused on full stack engineering, healthcare systems, and cloud-backed products.</span>
+          </div>
+          <ul class="contact-list">
+            <li>Email: <a href="mailto:lakshaykumar908@gmail.com">lakshaykumar908@gmail.com</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/lakshay-kumar-454264194/">lakshay-kumar</a></li>
+            <li>GitHub: <a href="https://github.com/lakshaykumar-dev">lakshaykumar-dev</a></li>
+          </ul>
+        </aside>
+      </div>
+      <div class="shell stats" aria-label="Resume highlights">
+        <div class="stat"><strong>3+</strong><span>Years of experience</span></div>
+        <div class="stat"><strong>3</strong><span>Major healthcare projects</span></div>
+        <div class="stat"><strong>20</strong><span>Latest Angular project work</span></div>
+        <div class="stat"><strong>AWS</strong><span>IAM, EC2, S3, Lambda, API Gateway</span></div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="shell">
+        <div class="section-title">
+          <h2>Technical Skills</h2>
+          <p>Full stack development skills across frontend, backend, databases, cloud services, and healthcare interoperability.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="card">
+            <h3>Languages</h3>
+            <ul class="tags"><li>C#</li><li>JavaScript</li><li>TypeScript</li><li>Python</li><li>SQL</li><li>PowerShell</li></ul>
+          </div>
+          <div class="card">
+            <h3>Frameworks</h3>
+            <ul class="tags"><li>Angular</li><li>ASP.NET</li><li>.NET Core</li><li>EF Core</li><li>Dapper</li><li>CQRS</li></ul>
+          </div>
+          <div class="card">
+            <h3>Tools and Cloud</h3>
+            <ul class="tags"><li>AWS</li><li>Docker</li><li>SQL Server</li><li>Git</li><li>JIRA</li><li>Visual Studio</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="shell">
+        <div class="section-title">
+          <h2>Experience</h2>
+          <p>Building production systems, guiding junior developers, and working directly with client teams.</p>
+        </div>
+        <div class="experience">
+          <div class="role-card">
+            <h3>Senior Full Stack Developer</h3>
+            <p>SmartData Enterprises (I) Ltd., Nagpur</p>
+            <p>Aug 2022 to Present</p>
+          </div>
+          <ul class="highlights">
+            <li>Engineered scalable REST APIs using .NET Core Web API within microservices architecture.</li>
+            <li>Created responsive Angular interfaces for enterprise-level client applications.</li>
+            <li>Optimized SQL Server database designs and retrieval strategies across distributed services.</li>
+            <li>Guided junior developers through code reviews, mentoring, and training programs.</li>
+            <li>Worked on AWS development using IAM, EC2, VPC, subnets, Lambda functions, S3, API Gateway, CloudWatch, Route 53, and Load Balancer.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="shell">
+        <div class="section-title">
+          <h2>Projects</h2>
+          <p>Healthcare, telehealth, billing, RBAC, integrations, and real-time workflows.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project">
+            <h3>Crystel Care CRM</h3>
+            <p>Multi-tenant care CRM with organization-scoped data isolation, RBAC, Microsoft Graph document storage, Twilio SMS workflows, Hangfire jobs, Xero accounting, and NDIS invoice generation.</p>
+            <div class="tech">Angular 20, .NET 8, EF Core, Dapper, SQL Server, Azure</div>
+          </article>
+          <article class="project">
+            <h3>Splynt Telehealth</h3>
+            <p>Telehealth platform with Firebase notifications, role-based permissions, Angular Material admin tools, Twilio voice calling, transcription, and billing workflows.</p>
+            <div class="tech">Angular 8, ASP.NET Core 2.2, SQL Server, AWS EC2</div>
+          </article>
+          <article class="project">
+            <h3>Anesthesia PMS</h3>
+            <p>Patient management system with real-time Neximatic vitals, CQRS-based backend workflows, Firestore integration, Health Gorilla EHR data, and Firebase messaging.</p>
+            <div class="tech">Angular 14, .NET Core 5, CQRS, EF Core, Firebase, AWS EC2</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="shell">
+        <div class="section-title">
+          <h2>Education</h2>
+          <p>Computer applications background with strong academic performance.</p>
+        </div>
+        <div class="education">
+          <div class="card">
+            <h3>Master of Computer Applications</h3>
+            <p>Babu Banarasi Das University, Lucknow</p>
+            <p>2020 to 2022, 85.77%</p>
+          </div>
+          <div class="card">
+            <h3>Bachelor of Computer Applications</h3>
+            <p>Babu Banarasi Das University, Lucknow</p>
+            <p>2017 to 2020, 80.57%</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="shell">Keep this link bookmarked. The PDF download updates whenever the resume is pushed.</div>
+  </footer>
 </body>
 </html>
