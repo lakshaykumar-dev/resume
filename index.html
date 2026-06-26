@@ -757,15 +757,103 @@
     .project-bullets { grid-template-columns: 1fr; }
     .stats-row { grid-template-columns: repeat(2, 1fr); }
     .section-header { flex-direction: column; align-items: flex-start; }
+    .project-header { flex-direction: column; align-items: flex-start; }
   }
   @media (max-width: 640px) {
-    .shell { width: calc(100% - 32px); }
+    .shell { width: calc(100% - 24px); }
     nav { height: 60px; }
     .hero { padding-top: 100px; }
     .nav-links { display: none; }
     .stats-row { grid-template-columns: 1fr; }
     .btn-gradient, .btn-ghost { width: 100%; justify-content: center; }
     .skills-grid { grid-template-columns: 1fr; }
+
+    /* Prevent glass hover shift on touch devices */
+    .glass:hover {
+      transform: none;
+    }
+
+    /* Project cards — reduce padding, allow tech to wrap */
+    .project-card {
+      padding: 20px 16px;
+      gap: 12px;
+    }
+    .project-card h3 {
+      font-size: 18px;
+    }
+    .project-tech {
+      white-space: normal;
+      border-radius: 12px;
+      line-height: 1.6;
+      font-size: 11px;
+      padding: 8px 12px;
+    }
+    .project-bullets {
+      gap: 6px;
+    }
+    .project-bullets li {
+      font-size: 13px;
+      padding: 10px 12px;
+    }
+
+    /* Skill cards */
+    .skill-card {
+      padding: 20px 16px;
+    }
+    .tags li {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+
+    /* Experience cards */
+    .role-card {
+      padding: 20px 16px;
+    }
+    .role-card h3 { font-size: 18px; }
+    .highlights li {
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+
+    /* Contact panel */
+    .contact-panel {
+      padding: 24px 18px;
+    }
+
+    /* Summary card */
+    .summary-card {
+      padding: 24px 20px;
+    }
+    .summary-card p {
+      font-size: 15px;
+    }
+
+    /* Education */
+    .edu-card {
+      padding: 20px 16px;
+    }
+
+    /* Stat cards */
+    .stat {
+      padding: 18px 14px;
+    }
+    .stat strong {
+      font-size: 26px;
+    }
+
+    /* Section titles */
+    .section-header h2 {
+      font-size: 26px;
+    }
+    .section-eyebrow {
+      font-size: 11px;
+    }
+
+    /* Footer */
+    footer .footer-links {
+      flex-wrap: wrap;
+      gap: 16px;
+    }
   }
 </style>
 </head>
