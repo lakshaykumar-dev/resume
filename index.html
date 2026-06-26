@@ -1,470 +1,1149 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lakshay Kumar | Senior Full Stack Developer</title>
-  <meta name="description" content="Resume page for Lakshay Kumar, Senior Full Stack Developer specializing in Angular, .NET Core, SQL Server, AWS, healthcare, HL7, FHIR, and RCM systems.">
-  <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: #f4f7fb;
-      color: #152033;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.55;
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lakshay Kumar | Senior Full Stack Developer</title>
+<meta name="description" content="Resume page for Lakshay Kumar, Senior Full Stack Developer specializing in Angular, .NET Core, SQL Server, AWS, healthcare, HL7, FHIR, and RCM systems."/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+  /* ===== LUMINA NOIR — Design System ===== */
+  :root {
+    --bg-base:       #0A0E1A;
+    --bg-surface:    #0D1C2D;
+    --bg-container:  #122131;
+    --bg-elevated:   #1C2B3C;
+    --bg-highest:    #273647;
+    --text-primary:  #D4E4FA;
+    --text-secondary:#C7C4D8;
+    --text-muted:    #918FA1;
+    --primary:       #C4C0FF;
+    --primary-ctr:   #8781FF;
+    --secondary:     #00F1FD;
+    --secondary-dim: #00DCE6;
+    --tertiary:      #FFB785;
+    --outline:       #464555;
+    --outline-light: rgba(255,255,255,0.10);
+    --outline-hover: rgba(255,255,255,0.20);
+    --glow-primary:  rgba(196,192,255,0.15);
+    --glow-secondary:rgba(0,241,253,0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  a { color: inherit; text-decoration: none; transition: color .25s; }
+  a:hover { color: var(--secondary); }
+
+  /* ===== Typography ===== */
+  .font-display  { font-family: 'Geist', system-ui, sans-serif; }
+  .font-body     { font-family: 'Inter', system-ui, sans-serif; }
+  .font-code     { font-family: 'JetBrains Mono', monospace; }
+
+  /* ===== Layout Shell ===== */
+  .shell {
+    width: min(1200px, calc(100% - 48px));
+    margin: 0 auto;
+  }
+
+  /* ===== Glassmorphism ===== */
+  .glass {
+    background: rgba(13,28,45,0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--outline-light);
+    border-radius: 16px;
+    transition: all .4s cubic-bezier(.4,0,.2,1);
+  }
+  .glass:hover {
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-color: var(--outline-hover);
+    box-shadow: 0 0 24px var(--glow-primary);
+    transform: translateY(-4px);
+  }
+
+  /* ===== Gradient Text ===== */
+  .text-gradient {
+    background: linear-gradient(135deg, #C4C0FF 0%, #00F1FD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ===== Gradient Button ===== */
+  .btn-gradient {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #8781FF 0%, #00F1FD 100%);
+    color: #0A0E1A;
+    font-weight: 700;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: all .3s;
+    text-decoration: none;
+  }
+  .btn-gradient:hover {
+    box-shadow: 0 0 24px rgba(196,192,255,0.45);
+    transform: translateY(-2px);
+    color: #0A0E1A;
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: rgba(13,28,45,0.4);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--outline-light);
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all .3s;
+    text-decoration: none;
+  }
+  .btn-ghost:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 16px var(--glow-primary);
+    transform: translateY(-2px);
+  }
+
+  /* ===== Decorative BG Orbs ===== */
+  .bg-orbs {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .bg-orbs::before,
+  .bg-orbs::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.18;
+  }
+  .bg-orbs::before {
+    width: 45vw; height: 45vw;
+    top: -15%; left: -10%;
+    background: var(--primary-ctr);
+  }
+  .bg-orbs::after {
+    width: 40vw; height: 40vw;
+    bottom: -10%; right: -10%;
+    background: var(--secondary);
+  }
+
+  /* ===== Navigation ===== */
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    background: rgba(10,14,26,0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--outline-light);
+    transition: all .3s;
+  }
+  header.scrolled {
+    background: rgba(10,14,26,0.88);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    height: 72px;
+  }
+  .brand {
+    font-family: 'Geist', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -0.03em;
+    color: var(--primary);
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .nav-links a {
+    white-space: nowrap;
+    transition: color .25s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    transition: width .3s;
+    border-radius: 1px;
+  }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-links a:hover { color: var(--text-primary); }
+
+  /* ===== Hero ===== */
+  .hero {
+    padding: 140px 0 60px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,241,253,0.08);
+    border: 1px solid rgba(0,241,253,0.2);
+    padding: 6px 16px;
+    border-radius: 999px;
+    width: max-content;
+    margin-bottom: 16px;
+  }
+  .eyebrow-dot {
+    width: 8px; height: 8px;
+    background: var(--secondary);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .eyebrow span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--secondary);
+  }
+  h1 {
+    font-family: 'Geist', sans-serif;
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: 0 0 18px;
+  }
+  .subtitle {
+    font-family: 'Geist', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    max-width: 640px;
+    margin-bottom: 14px;
+  }
+  .summary {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 640px;
+    margin-bottom: 28px;
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+  /* Contact Panel */
+  .contact-panel {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-panel .orb {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    background: var(--primary);
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.15;
+  }
+  .contact-panel h3 {
+    font-family: 'Geist', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .contact-item .material-symbols-outlined {
+    color: var(--secondary);
+    font-size: 22px;
+    margin-top: 2px;
+  }
+  .contact-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+  .contact-value {
+    font-size: 15px;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+  .contact-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--outline-light), transparent);
+  }
+  .social-links {
+    display: flex;
+    gap: 10px;
+  }
+  .social-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(13,28,45,0.5);
+    border: 1px solid var(--outline-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all .3s;
+  }
+  .social-links a:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 12px var(--glow-primary);
+    color: var(--primary);
+  }
+
+  /* Stats */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .stat {
+    padding: 24px;
+    text-align: center;
+    border-radius: 16px;
+  }
+  .stat strong {
+    display: block;
+    font-family: 'Geist', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .stat strong.gradient { background: linear-gradient(135deg, #C4C0FF, #00F1FD); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .stat strong.cyan { color: var(--secondary); }
+  .stat strong.amber { color: var(--tertiary); }
+  .stat span {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* ===== Section Headings ===== */
+  section {
+    padding: 72px 0;
+  }
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+  .section-header h2 {
+    font-family: 'Geist', sans-serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .section-header p {
+    max-width: 520px;
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 8px;
+  }
+
+  /* ===== Professional Summary ===== */
+  .summary-section {
+    padding: 0 0 20px;
+  }
+  .summary-card {
+    padding: 36px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .summary-card::before {
+    content: '"';
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    font-family: 'Geist', sans-serif;
+    font-size: 100px;
+    font-weight: 800;
+    line-height: 1;
+    opacity: 0.06;
+    color: var(--primary);
+  }
+  .summary-card p {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    max-width: 960px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== Skills Grid ===== */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .skill-card {
+    padding: 28px;
+  }
+  .skill-card h3 {
+    font-family: 'Geist', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .skill-card h3 .material-symbols-outlined {
+    font-size: 22px;
+    color: var(--primary);
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+  }
+  .tags li {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(196,192,255,0.08);
+    border: 1px solid rgba(196,192,255,0.15);
+    color: var(--primary);
+    transition: all .3s;
+  }
+  .tags li:hover {
+    background: rgba(196,192,255,0.15);
+    border-color: var(--primary);
+    box-shadow: 0 0 12px var(--glow-primary);
+  }
+
+  /* ===== Experience ===== */
+  .experience-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .timeline-entry {
+    display: grid;
+    grid-template-columns: 0.35fr 0.65fr;
+    gap: 24px;
+    position: relative;
+    padding-bottom: 40px;
+  }
+  .timeline-entry:last-child { padding-bottom: 0; }
+  .timeline-entry::before {
+    content: '';
+    position: absolute;
+    left: calc(35% + 12px);
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--primary-ctr), var(--outline));
+    opacity: 0.3;
+  }
+  .timeline-entry:last-child::before { display: none; }
+  .timeline-dot {
+    position: absolute;
+    left: calc(35% + 6px);
+    top: 24px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--primary-ctr);
+    border: 3px solid var(--bg-base);
+    box-shadow: 0 0 10px var(--glow-primary);
+    z-index: 2;
+  }
+  .role-card {
+    padding: 28px;
+    background: linear-gradient(135deg, rgba(135,129,255,0.15) 0%, rgba(0,241,253,0.05) 100%);
+    border: 1px solid rgba(135,129,255,0.2);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .role-card::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 120px;
+    height: 120px;
+    background: var(--primary-ctr);
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.2;
+  }
+  .role-card h3 {
+    font-family: 'Geist', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .role-card p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .role-card .date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--secondary);
+    margin-top: 8px;
+  }
+  .role-card .promotion-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 999px;
+    width: max-content;
+  }
+  .badge-current {
+    background: rgba(0,241,253,0.12);
+    border: 1px solid rgba(0,241,253,0.3);
+    color: var(--secondary);
+  }
+  .badge-past {
+    background: rgba(196,192,255,0.08);
+    border: 1px solid rgba(196,192,255,0.15);
+    color: var(--primary);
+  }
+  .highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding-left: 24px;
+  }
+  .highlights li {
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.55;
+  }
+  .highlights li::before {
+    content: '→';
+    color: var(--secondary);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ===== Projects ===== */
+  .projects-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .project-card {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .project-card h3 {
+    font-family: 'Geist', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .project-tech {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--secondary);
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(0,241,253,0.08);
+    border: 1px solid rgba(0,241,253,0.15);
+    white-space: nowrap;
+  }
+  .project-bullets {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    list-style: none;
+  }
+  .project-bullets li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: rgba(10,14,26,0.5);
+    border: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .project-bullets li::before {
+    content: '▸';
+    color: var(--primary);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ===== Education ===== */
+  .education-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .edu-card {
+    padding: 28px;
+  }
+  .edu-card h3 {
+    font-family: 'Geist', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .edu-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .edu-card .score {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--secondary);
+    font-weight: 500;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    padding: 40px 0 52px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    border-top: 1px solid var(--outline-light);
+    letter-spacing: 0.02em;
+  }
+  footer .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* ===== Animations ===== */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-in {
+    opacity: 0;
+    animation: fade-up 0.7s cubic-bezier(.4,0,.2,1) forwards;
+  }
+  .delay-100 { animation-delay: .1s; }
+  .delay-200 { animation-delay: .2s; }
+  .delay-300 { animation-delay: .3s; }
+  .delay-400 { animation-delay: .4s; }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 900px) {
+    .hero-grid,
+    .skills-grid,
+    .education-grid {
+      grid-template-columns: 1fr;
     }
-    a { color: inherit; }
-    .shell {
-      width: min(1120px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 5;
-      background: rgba(244, 247, 251, 0.92);
-      border-bottom: 1px solid #d9e1ec;
-      backdrop-filter: blur(10px);
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      min-height: 64px;
-    }
-    .brand {
-      font-weight: 800;
-      letter-spacing: 0.2px;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      color: #536276;
-      font-size: 14px;
-    }
-    .nav-links a {
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 10px 16px;
-      border-radius: 7px;
-      border: 1px solid #152033;
-      background: #152033;
-      color: #ffffff;
-      font-weight: 700;
-      text-decoration: none;
-    }
-    .button.secondary {
-      background: #ffffff;
-      color: #152033;
-      border-color: #c9d4e2;
-    }
-    .hero {
-      padding: 56px 0 34px;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
-      gap: 28px;
-      align-items: stretch;
-    }
-    .intro,
-    .contact-panel,
-    .card,
-    .project {
-      background: #ffffff;
-      border: 1px solid #dce5ef;
-      border-radius: 8px;
-      box-shadow: 0 16px 36px rgba(21, 32, 51, 0.07);
-    }
-    .intro { padding: 34px; }
-    .eyebrow {
-      margin: 0 0 12px;
-      color: #0f766e;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    h1 {
-      margin: 0;
-      font-size: clamp(36px, 7vw, 64px);
-      line-height: 1.02;
-      letter-spacing: 0;
-    }
-    .subtitle {
-      margin: 14px 0 0;
-      color: #334155;
-      font-size: 21px;
-      font-weight: 700;
-    }
-    .summary {
-      max-width: 720px;
-      margin: 18px 0 0;
-      color: #536276;
-      font-size: 16px;
-    }
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 26px;
-    }
-    .contact-panel {
-      display: grid;
-      align-content: space-between;
-      gap: 22px;
-      padding: 24px;
-    }
-    .availability {
-      padding: 18px;
-      border-radius: 8px;
-      background: #eef8f6;
-      border: 1px solid #cce7e2;
-    }
-    .availability strong {
-      display: block;
-      margin-bottom: 4px;
-      color: #0f766e;
-    }
-    .contact-list {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      color: #536276;
-      font-size: 14px;
-    }
-    .contact-list a { text-decoration: none; color: #152033; font-weight: 700; }
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
-    .stat {
-      padding: 18px;
-      background: #ffffff;
-      border: 1px solid #dce5ef;
-      border-radius: 8px;
-    }
-    .stat strong {
-      display: block;
-      color: #0f766e;
-      font-size: 28px;
-      line-height: 1;
-    }
-    .stat span {
-      display: block;
-      margin-top: 8px;
-      color: #536276;
-      font-size: 13px;
-    }
-    section {
-      padding: 28px 0;
-    }
-    .section-title {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-    h2 {
-      margin: 0;
-      font-size: 26px;
-      letter-spacing: 0;
-    }
-    .section-title p {
-      max-width: 560px;
-      margin: 0;
-      color: #536276;
-      font-size: 14px;
-    }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .card { padding: 20px; }
-    .card h3,
-    .project h3 {
-      margin: 0 0 10px;
-      font-size: 17px;
-    }
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .tags li {
-      padding: 6px 9px;
-      border-radius: 999px;
-      background: #edf2f7;
-      color: #334155;
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .experience {
-      display: grid;
-      grid-template-columns: minmax(260px, 0.4fr) minmax(0, 0.6fr);
-      gap: 18px;
-    }
-    .role-card {
-      padding: 24px;
-      background: #152033;
-      color: #ffffff;
-      border-radius: 8px;
-    }
-    .role-card h3 {
-      margin: 0 0 6px;
-      font-size: 22px;
-    }
-    .role-card p {
-      margin: 0;
-      color: #cbd5e1;
-    }
-    .highlights {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .highlights li {
-      padding: 14px 16px;
-      background: #ffffff;
-      border: 1px solid #dce5ef;
-      border-radius: 8px;
-      color: #334155;
-    }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .project {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      padding: 20px;
-    }
-    .project p {
-      margin: 0;
-      color: #536276;
-      font-size: 14px;
-    }
-    .project .tech {
-      margin-top: auto;
-      color: #0f766e;
-      font-size: 13px;
-      font-weight: 800;
-    }
-    .education {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-    footer {
-      padding: 34px 0 44px;
-      color: #536276;
-      text-align: center;
-      font-size: 14px;
-    }
-    @media (max-width: 860px) {
-      .hero-grid,
-      .experience,
-      .skills-grid,
-      .projects-grid,
-      .education {
-        grid-template-columns: 1fr;
-      }
-      .stats { grid-template-columns: repeat(2, 1fr); }
-      .section-title {
-        display: block;
-      }
-      .section-title p { margin-top: 6px; }
-    }
-    @media (max-width: 640px) {
-      .shell { width: min(100% - 22px, 1120px); }
-      nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 12px 0;
-      }
-      .nav-links {
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: 4px;
-      }
-      .intro,
-      .contact-panel,
-      .role-card,
-      .card,
-      .project {
-        padding: 18px;
-      }
-      .hero { padding-top: 28px; }
-      .stats { grid-template-columns: 1fr; }
-      .button { width: 100%; }
-    }
-  </style>
+    .timeline-entry { grid-template-columns: 1fr; }
+    .timeline-entry::before,
+    .timeline-dot { display: none; }
+    .highlights { padding-left: 0; }
+    .project-bullets { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .section-header { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 640px) {
+    .shell { width: calc(100% - 32px); }
+    nav { height: 60px; }
+    .hero { padding-top: 100px; }
+    .nav-links { display: none; }
+    .stats-row { grid-template-columns: 1fr; }
+    .btn-gradient, .btn-ghost { width: 100%; justify-content: center; }
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <nav class="shell">
-      <div class="brand">Lakshay Kumar</div>
-      <div class="nav-links" aria-label="Page navigation">
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="resume_v1.pdf" download>Download PDF</a>
-      </div>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="shell hero-grid">
-        <div class="intro">
-          <p class="eyebrow">Senior Full Stack Developer</p>
-          <h1>Lakshay Kumar</h1>
-          <p class="subtitle">Angular and .NET Core developer building scalable healthcare and cloud-ready web applications.</p>
-          <p class="summary">3+ years of hands-on experience across monolithic and microservices-based architectures, with strong work in REST APIs, Angular interfaces, SQL Server optimization, AWS development, and healthcare workflows.</p>
-          <div class="actions">
-            <a class="button" href="resume_v1.pdf" download>Download Resume</a>
-            <a class="button secondary" href="resume_v1.pdf" target="_blank" rel="noopener">View PDF</a>
+<!-- Background Orbs -->
+<div class="bg-orbs"></div>
+
+<!-- Navigation -->
+<header id="site-header">
+  <nav class="shell">
+    <div class="brand">LAKSHAY.DEV</div>
+    <div class="nav-links">
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="resume_v1.pdf" download class="btn-gradient" style="padding:8px 20px;font-size:13px;">
+        <span class="material-symbols-outlined" style="font-size:18px;">download</span>
+        Download PDF
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="animate-in">
+        <div class="eyebrow">
+          <div class="eyebrow-dot"></div>
+          <span>Senior Full Stack Developer</span>
+        </div>
+        <h1>Hi, I'm<br><span class="text-gradient">Lakshay Kumar</span></h1>
+        <p class="subtitle">Angular and .NET Core developer building scalable healthcare and cloud-ready web applications.</p>
+        <p class="summary">3+ years of hands-on experience across monolithic and microservices-based architectures, with strong work in REST APIs, Angular interfaces, SQL Server optimization, AWS development, and healthcare workflows.</p>
+        <div class="actions">
+          <a class="btn-gradient" href="resume_v1.pdf" download>
+            <span class="material-symbols-outlined" style="font-size:20px;">download</span>
+            Download Resume
+          </a>
+          <a class="btn-ghost" href="resume_v1.pdf" target="_blank" rel="noopener">
+            <span class="material-symbols-outlined" style="font-size:20px;">visibility</span>
+            View PDF
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact Panel -->
+      <aside class="glass contact-panel animate-in delay-200">
+        <div class="orb"></div>
+        <h3>
+          <span class="material-symbols-outlined" style="color:var(--primary);">person</span>
+          Quick Contact
+        </h3>
+        <div class="contact-item">
+          <span class="material-symbols-outlined">location_on</span>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">Nagpur, India</div>
           </div>
         </div>
-        <aside class="contact-panel">
-          <div class="availability">
-            <strong>Based in Nagpur, India</strong>
-            <span>Focused on full stack engineering, healthcare systems, and cloud-backed products.</span>
+        <div class="contact-item">
+          <span class="material-symbols-outlined">phone</span>
+          <div>
+            <div class="contact-label">Phone</div>
+            <a class="contact-value" href="tel:+916392883417">+91 6392883417</a>
           </div>
-          <ul class="contact-list">
-            <li>Email: <a href="mailto:lakshaykumar908@gmail.com">lakshaykumar908@gmail.com</a></li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/lakshay-kumar-454264194/">lakshay-kumar</a></li>
-            <li>GitHub: <a href="https://github.com/lakshaykumar-dev">lakshaykumar-dev</a></li>
+        </div>
+        <div class="contact-item">
+          <span class="material-symbols-outlined">mail</span>
+          <div>
+            <div class="contact-label">Email</div>
+            <a class="contact-value" href="mailto:lakshaykumar908@gmail.com">lakshaykumar908@gmail.com</a>
+          </div>
+        </div>
+        <div class="contact-divider"></div>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/lakshay-kumar-454264194/" target="_blank" rel="noopener" title="LinkedIn">
+            <span class="material-symbols-outlined">link</span>
+          </a>
+          <a href="https://github.com/lakshaykumar-dev" target="_blank" rel="noopener" title="GitHub">
+            <span class="material-symbols-outlined">code</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="shell stats-row">
+      <div class="glass stat animate-in delay-100">
+        <strong class="gradient">3+</strong>
+        <span>Years Experience</span>
+      </div>
+      <div class="glass stat animate-in delay-200">
+        <strong class="cyan">3</strong>
+        <span>Major Healthcare Projects</span>
+      </div>
+      <div class="glass stat animate-in delay-300">
+        <strong class="amber">20</strong>
+        <span>Latest Angular Version</span>
+      </div>
+      <div class="glass stat animate-in delay-400">
+        <strong class="gradient">AWS</strong>
+        <span>IAM · EC2 · S3 · Lambda</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROFESSIONAL SUMMARY ===== -->
+  <section class="summary-section">
+    <div class="shell">
+      <div class="glass summary-card">
+        <p>Results-driven Full Stack Developer with 3+ years of hands-on experience architecting, developing, and deploying scalable web applications across monolithic and microservices-based architectures. Proficient in Angular and .NET Core, with a demonstrated history of delivering high-performance, enterprise-grade solutions aligned with business objectives.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
+    <div class="shell">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">// Tech Stack</div>
+          <h2 class="text-gradient">Technical Skills</h2>
+        </div>
+        <p>Full stack development skills across frontend, backend, databases, cloud services, and healthcare interoperability.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="glass skill-card">
+          <h3><span class="material-symbols-outlined">terminal</span> Languages</h3>
+          <ul class="tags">
+            <li>C#</li><li>JavaScript</li><li>TypeScript</li><li>Python</li><li>SQL</li><li>PowerShell</li>
           </ul>
-        </aside>
+        </div>
+        <div class="glass skill-card">
+          <h3><span class="material-symbols-outlined">layers</span> Frameworks</h3>
+          <ul class="tags">
+            <li>Angular</li><li>ASP.NET</li><li>.NET Core</li><li>EF Core</li><li>Dapper</li><li>CQRS</li>
+          </ul>
+        </div>
+        <div class="glass skill-card">
+          <h3><span class="material-symbols-outlined">build</span> Tools & Utilities</h3>
+          <ul class="tags">
+            <li>Docker</li><li>Visual Studio 2019/2022</li><li>Git</li><li>JIRA</li><li>Burp Suite</li><li>Claude Code</li>
+          </ul>
+        </div>
+        <div class="glass skill-card">
+          <h3><span class="material-symbols-outlined">storage</span> Database</h3>
+          <ul class="tags">
+            <li>Microsoft SQL Server</li>
+          </ul>
+        </div>
+        <div class="glass skill-card">
+          <h3><span class="material-symbols-outlined">cloud</span> Cloud & Infrastructure</h3>
+          <ul class="tags">
+            <li>AWS IAM</li><li>EC2</li><li>VPC</li><li>S3</li><li>Lambda</li><li>API Gateway</li><li>CloudWatch</li><li>Route 53</li><li>Load Balancer</li>
+          </ul>
+        </div>
+        <div class="glass skill-card">
+          <h3><span class="material-symbols-outlined">local_hospital</span> Domain Expertise</h3>
+          <ul class="tags">
+            <li>Healthcare</li><li>Revenue Cycle Management</li><li>HL7</li><li>FHIR</li>
+          </ul>
+        </div>
       </div>
-      <div class="shell stats" aria-label="Resume highlights">
-        <div class="stat"><strong>3+</strong><span>Years of experience</span></div>
-        <div class="stat"><strong>3</strong><span>Major healthcare projects</span></div>
-        <div class="stat"><strong>20</strong><span>Latest Angular project work</span></div>
-        <div class="stat"><strong>AWS</strong><span>IAM, EC2, S3, Lambda, API Gateway</span></div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="skills">
-      <div class="shell">
-        <div class="section-title">
-          <h2>Technical Skills</h2>
-          <p>Full stack development skills across frontend, backend, databases, cloud services, and healthcare interoperability.</p>
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience">
+    <div class="shell">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">// Career</div>
+          <h2 class="text-gradient">Experience</h2>
         </div>
-        <div class="skills-grid">
-          <div class="card">
-            <h3>Languages</h3>
-            <ul class="tags"><li>C#</li><li>JavaScript</li><li>TypeScript</li><li>Python</li><li>SQL</li><li>PowerShell</li></ul>
-          </div>
-          <div class="card">
-            <h3>Frameworks</h3>
-            <ul class="tags"><li>Angular</li><li>ASP.NET</li><li>.NET Core</li><li>EF Core</li><li>Dapper</li><li>CQRS</li></ul>
-          </div>
-          <div class="card">
-            <h3>Tools and Cloud</h3>
-            <ul class="tags"><li>AWS</li><li>Docker</li><li>SQL Server</li><li>Git</li><li>JIRA</li><li>Visual Studio</li></ul>
-          </div>
-        </div>
+        <p>Building production systems at SmartData Enterprises — promoted twice in 3 years for consistent delivery and technical leadership.</p>
       </div>
-    </section>
 
-    <section id="experience">
-      <div class="shell">
-        <div class="section-title">
-          <h2>Experience</h2>
-          <p>Building production systems, guiding junior developers, and working directly with client teams.</p>
-        </div>
-        <div class="experience">
+      <div class="experience-timeline">
+        <!-- Role 3: Current -->
+        <div class="timeline-entry">
+          <div class="timeline-dot"></div>
           <div class="role-card">
-            <h3>Senior Full Stack Developer</h3>
-            <p>SmartData Enterprises (I) Ltd., Nagpur</p>
-            <p>Aug 2022 to Present</p>
+            <h3>Senior Software Associate Level 2</h3>
+            <p>SmartData Enterprises Inc., Nagpur</p>
+            <div class="date">Jun 2025 → Present</div>
+            <div class="promotion-badge badge-current">
+              <span class="material-symbols-outlined" style="font-size:14px;">trending_up</span>
+              Current Role
+            </div>
           </div>
           <ul class="highlights">
-            <li>Engineered scalable REST APIs using .NET Core Web API within microservices architecture.</li>
-            <li>Created responsive Angular interfaces for enterprise-level client applications.</li>
-            <li>Optimized SQL Server database designs and retrieval strategies across distributed services.</li>
-            <li>Guided junior developers through code reviews, mentoring, and training programs.</li>
-            <li>Worked on AWS development using IAM, EC2, VPC, subnets, Lambda functions, S3, API Gateway, CloudWatch, Route 53, and Load Balancer.</li>
+            <li class="glass">Lead architecture and development of scalable microservices using .NET Core Web API, driving modular design and seamless cross-service integration.</li>
+            <li class="glass">Guide junior developers through code reviews, technical mentoring, and training programs focused on project architecture and best practices.</li>
+            <li class="glass">Worked on AWS development using IAM, EC2, VPC, subnets, Lambda functions, S3, API Gateway, CloudWatch, Route 53, and Load Balancer.</li>
+          </ul>
+        </div>
+
+        <!-- Role 2: Promoted -->
+        <div class="timeline-entry">
+          <div class="timeline-dot"></div>
+          <div class="role-card">
+            <h3>Senior Software Associate Level 1</h3>
+            <p>SmartData Enterprises Inc., Nagpur</p>
+            <div class="date">Aug 2024 → Jun 2025</div>
+            <div class="promotion-badge badge-past">
+              <span class="material-symbols-outlined" style="font-size:14px;">arrow_upward</span>
+              Promoted
+            </div>
+          </div>
+          <ul class="highlights">
+            <li class="glass">Engineered and maintained scalable, high-performance RESTful APIs using .NET Core Web API within microservices architecture, supporting seamless integration and modular development.</li>
+            <li class="glass">Created responsive, component-based user interfaces using Angular, enhancing usability for enterprise-level client applications.</li>
+            <li class="glass">Used Docker to containerize services, enabling consistent deployment across environments and streamlining CI/CD workflows.</li>
+            <li class="glass">Collaborated with cross-functional client teams to gather business requirements and deliver robust technical solutions aligned with project goals.</li>
+          </ul>
+        </div>
+
+        <!-- Role 1: Starting -->
+        <div class="timeline-entry">
+          <div class="timeline-dot"></div>
+          <div class="role-card">
+            <h3>Software Associate</h3>
+            <p>SmartData Enterprises Inc., Nagpur</p>
+            <div class="date">Aug 2022 → Aug 2024</div>
+          </div>
+          <ul class="highlights">
+            <li class="glass">Optimized database designs and SQL Server strategies to improve data retrieval across distributed services.</li>
+            <li class="glass">Built responsive, component-based user interfaces using Angular and Angular Material for enterprise-level client applications.</li>
+            <li class="glass">Actively contributed to Agile ceremonies including sprint planning, daily stand-ups, code reviews, and retrospectives.</li>
+            <li class="glass">Researched and adopted tools and best practices to improve microservice scalability, security, and maintainability.</li>
           </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="projects">
-      <div class="shell">
-        <div class="section-title">
-          <h2>Projects</h2>
-          <p>Healthcare, telehealth, billing, RBAC, integrations, and real-time workflows.</p>
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <div class="shell">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">// Portfolio</div>
+          <h2 class="text-gradient">Projects</h2>
         </div>
-        <div class="projects-grid">
-          <article class="project">
+        <p>Healthcare, telehealth, billing, RBAC, integrations, and real-time workflows.</p>
+      </div>
+      <div class="projects-stack">
+
+        <!-- Crystel Care CRM -->
+        <article class="glass project-card">
+          <div class="project-header">
             <h3>Crystel Care CRM</h3>
-            <p>Multi-tenant care CRM with organization-scoped data isolation, RBAC, Microsoft Graph document storage, Twilio SMS workflows, Hangfire jobs, Xero accounting, and NDIS invoice generation.</p>
-            <div class="tech">Angular 20, .NET 8, EF Core, Dapper, SQL Server, Azure</div>
-          </article>
-          <article class="project">
+            <div class="project-tech">Angular 20 · Angular Material · .NET 8 · EF Core · Dapper · SQL Server · Azure</div>
+          </div>
+          <ul class="project-bullets">
+            <li>Enforced multi-tenant organization-scoped data isolation through custom request middleware, enabling multiple care organizations to operate securely on a shared platform.</li>
+            <li>Built fine-grained role-based access control for screen- and action-level permissions across organization, staff, and client portals, backed by Redis and in-memory caching.</li>
+            <li>Built a centralized admin dashboard for managing users, roles, screen permissions, and appointments with Angular Material.</li>
+            <li>Integrated Microsoft Graph for secure client and staff document storage in Microsoft 365/Azure, replacing local file handling with permission-aware cloud storage.</li>
+            <li>Built inbound SMS workflows using Twilio and recurring Hangfire jobs for service-agreement, staff-credential, and client-report expiry reminders.</li>
+            <li>Integrated Xero accounting workflows for invoice creation, payroll-calendar resolution, reconciliation, whole-invoice reversal/void handling, and part-paid invoice settlement.</li>
+            <li>Delivered automated NDIS invoice generation with bulk-create workflows, travel-code billing, and duplicate-claim safeguards.</li>
+            <li>Applied leave-adjusted KPI calculations and centralized production error notification middleware that emails detailed runtime reports to the development team.</li>
+          </ul>
+        </article>
+
+        <!-- Splynt Telehealth -->
+        <article class="glass project-card">
+          <div class="project-header">
             <h3>Splynt Telehealth</h3>
-            <p>Telehealth platform with Firebase notifications, role-based permissions, Angular Material admin tools, Twilio voice calling, transcription, and billing workflows.</p>
-            <div class="tech">Angular 8, ASP.NET Core 2.2, SQL Server, AWS EC2</div>
-          </article>
-          <article class="project">
+            <div class="project-tech">Angular 8 · Angular Material · ASP.NET Core 2.2 · EF Core · Dapper · SQL Server · AWS EC2</div>
+          </div>
+          <ul class="project-bullets">
+            <li>Integrated Firebase Cloud Messaging to deliver real-time notifications for appointments, updates, and reminders.</li>
+            <li>Expanded role-based access control for Admin, Doctor, Patient, and other roles with secure screen-level permissions.</li>
+            <li>Built an Angular Material admin dashboard for managing users, roles, screen permissions, and appointments.</li>
+            <li>Integrated Twilio voice calling with real-time call transcription and AI-generated conversation summaries using Twilio and OpenAI services.</li>
+            <li>Built inbound SMS processing workflows using Twilio to parse messages and integrate with downstream systems.</li>
+            <li>Designed and delivered a remote therapeutic manager billing module to streamline session tracking and automate billing workflows.</li>
+            <li>Built centralized error notification middleware to capture production exceptions and send detailed request/API response context by email.</li>
+          </ul>
+        </article>
+
+        <!-- Anesthesia PMS -->
+        <article class="glass project-card">
+          <div class="project-header">
             <h3>Anesthesia PMS</h3>
-            <p>Patient management system with real-time Neximatic vitals, CQRS-based backend workflows, Firestore integration, Health Gorilla EHR data, and Firebase messaging.</p>
-            <div class="tech">Angular 14, .NET Core 5, CQRS, EF Core, Firebase, AWS EC2</div>
-          </article>
+            <div class="project-tech">Angular 14 · Angular Material · .NET Core 5 · CQRS · EF Core · SQL Server · Firebase · AWS EC2</div>
+          </div>
+          <ul class="project-bullets">
+            <li>Integrated real-time patient vitals monitoring using Neximatic medical devices, streaming heart rate, SpO2, and blood pressure data for live display and historical analysis.</li>
+            <li>Used the CQRS pattern to separate read and write workflows for cleaner backend services.</li>
+            <li>Built a backend pipeline to receive real-time Neximatic vitals and relay them to an anesthesiologist iPad application through Firestore.</li>
+            <li>Built backend services to receive patient health data from Health Gorilla EHR and push updates to frontend applications.</li>
+            <li>Applied real-time push notifications using Firebase Cloud Messaging for appointment reminders, critical alerts, and chat messages.</li>
+            <li>Enforced CSRF protection using the double-submit cookie pattern with secure cookie flags and Angular X-XSRF-TOKEN headers.</li>
+            <li>Mitigated IDOR vulnerabilities by enforcing strict ownership validation on protected resources and securing endpoints against unauthorized access and parameter tampering.</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="education">
+    <div class="shell">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">// Background</div>
+          <h2 class="text-gradient">Education</h2>
+        </div>
+        <p>Computer applications background with strong academic performance.</p>
+      </div>
+      <div class="education-grid">
+        <div class="glass edu-card">
+          <h3>Master of Computer Applications</h3>
+          <p>Babu Banarasi Das University, Lucknow</p>
+          <p>2020 – 2022</p>
+          <div class="score">
+            <span class="material-symbols-outlined" style="font-size:16px;">school</span>
+            85.77%
+          </div>
+        </div>
+        <div class="glass edu-card">
+          <h3>Bachelor of Computer Applications</h3>
+          <p>Babu Banarasi Das University, Lucknow</p>
+          <p>2017 – 2020</p>
+          <div class="score">
+            <span class="material-symbols-outlined" style="font-size:16px;">school</span>
+            80.57%
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+</main>
 
-    <section id="education">
-      <div class="shell">
-        <div class="section-title">
-          <h2>Education</h2>
-          <p>Computer applications background with strong academic performance.</p>
-        </div>
-        <div class="education">
-          <div class="card">
-            <h3>Master of Computer Applications</h3>
-            <p>Babu Banarasi Das University, Lucknow</p>
-            <p>2020 to 2022, 85.77%</p>
-          </div>
-          <div class="card">
-            <h3>Bachelor of Computer Applications</h3>
-            <p>Babu Banarasi Das University, Lucknow</p>
-            <p>2017 to 2020, 80.57%</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+<!-- Footer -->
+<footer>
+  <div class="shell">
+    <div class="footer-links">
+      <a href="https://github.com/lakshaykumar-dev" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/lakshay-kumar-454264194/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="resume_v1.pdf" download>Resume</a>
+    </div>
+    <p>© 2026 Lakshay Kumar. Keep this link bookmarked — the PDF download updates whenever the resume is pushed.</p>
+  </div>
+</footer>
 
-  <footer>
-    <div class="shell">Keep this link bookmarked. The PDF download updates whenever the resume is pushed.</div>
-  </footer>
+<script>
+  // Sticky nav scroll effect
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 24);
+  });
+
+  // Intersection Observer for scroll animations
+  const animateEls = document.querySelectorAll('.glass, .role-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  animateEls.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1)';
+    observer.observe(el);
+  });
+</script>
 </body>
 </html>
